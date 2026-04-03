@@ -1,6 +1,6 @@
-## Unix Shell
+# Unix Shell
 
-# Features
+### Features
 - Dynamic malloc for input
 - Command Parsing
 - Command Execution
