@@ -1,6 +1,10 @@
 # Unix Shell
 
 ### Features
-- Dynamic malloc for input
-- Command Parsing
-- Command Execution
+- [X] Dynamic malloc for input
+- [X] Command Parsing
+- [X] Command Execution
+- [ ] I/O Redirection
+- [ ] Pipes
+- [ ] BG processes
+- [ ] Wildcard
