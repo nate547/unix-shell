@@ -132,31 +132,38 @@ char **parse_line (char *line) {
 // ########################################
 
 int main() {
+// Shell runtime loop
     while (1) {
         printf("> ");
         fflush(stdout);
-        
+
+// read_line call
         char *line = read_line();
         if (!line) break;
-        
+
+// Call parse_line to tokenize args
         char **argv = parse_line(line);
         if (argv[0] == NULL) {
             free(line);
             free(argv);
             continue;
         }
-            
+
+// Command execution
         pid_t pid = fork();
+// Is process current?
         if (pid == 0) {
             execvp(argv[0], argv);
             perror("execvp");
             exit(EXIT_FAILURE);
+// If not queue process until current
         } else if (pid > 0) {
             wait(NULL);
         } else {
             perror("fork");
         }
-            
+
+// Free memory
         free(line);
         free(argv);
     }
